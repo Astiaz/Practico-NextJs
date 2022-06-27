@@ -1,23 +1,26 @@
 import React, {useContext} from 'react';
 import AppContext from '@context/AppContext';
-import '@styles/OrderItem.scss';
 import closeIcon from '@icons/icon_close.png';
+import Image from 'next/image';
+import styles from '@styles/OrderItem.module.scss';
 
 const OrderItem = ({product, indexValue}) =>{
     const { removeFromCart } = useContext(AppContext);
     const handleRemove = product => {
         removeFromCart(product);
-    }
+    };
     return(
-        <div className="OrderItem">
+        <div className={styles.OrderItem}>
             <figure>
-                <img src={product.images[0]} alt={product.title}/>
+                <Image src={product?.images[0]} alt={product?.title} width="100%"
+			    height="100%"/>
             </figure>
-            <p>{product.title}</p>
-            <p>${product.price}</p>
-            <img src={closeIcon} className="Delete" alt="close" onClick={() => handleRemove(indexValue)}></img>
+            <p>{product?.title}</p>
+            <p>${product?.price}</p>
+            <img src={closeIcon.src} className={styles.Delete} alt="close" width="100%"
+			height="100%" layout="responsive" onClick={() => handleRemove(indexValue)} />
         </div>
-    )  
-}
+    );
+};
 
-export default OrderItem
+export default OrderItem;

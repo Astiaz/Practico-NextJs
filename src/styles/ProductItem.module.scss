@@ -9,6 +9,7 @@
 	border-radius: 20px;
 	object-fit: cover;
 	cursor: pointer;
+	z-index: -3;
 }
 .product-info {
 	display: flex;
@@ -35,6 +36,10 @@
 	margin-top: 0;
 	margin-bottom: 0;
 	color: var(--very-light-pink);
+}
+.button{
+	border: none;
+	background: none;
 }
 @media (max-width: 640px) {
 	.cards-container {

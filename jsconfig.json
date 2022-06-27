@@ -1,8 +1,15 @@
 {
     "compilerOptions": {
-        "baseUrl": "platzistore/src",
+        "baseUrl": "src",
         "paths": {
-            "@pages":["pages/"],
+            "@pages/*":["pages/*"],
+            "@components/*":["components/*"],
+            "@hooks/*":["hooks/*"],
+            "@containers/*":["containers/*"],
+            "@logos/*":["assets/logos/*"],
+            "@icons/*":["assets/icons/*"],
+            "@context/*":["context/*"],
+            "@styles/*":["styles/*"],
         }
     }
 }

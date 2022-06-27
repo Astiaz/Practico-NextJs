@@ -1,15 +1,15 @@
-@use '_vars';
+@import '_vars';
 
-nav {
+.Nav {
     display: flex;
     justify-content: space-between;
     padding: 0 24px;
-    border-bottom: 1px solid var(--very-light-pink);
+    border-bottom: 1px solid $--very-light-pink;
     top: 0;
     position: fixed;
-    width: calc(100% - 48px);
+    width: 100%;
     margin-bottom: 60px;
-    background-color: var(--white);
+    background-color: $--white;
 }
 
 .menu {
@@ -37,19 +37,19 @@ nav {
 .navbar-left ul li a,
 .navbar-right ul li a {
     text-decoration: none;
-    color: var(--very-light-pink);
-    border: 1px solid var(--white);
+    color: $--very-light-pink;
+    border: 1px solid $--white;
     padding: 8px;
     border-radius: 8px;
 }
 .navbar-left ul li a:hover,
 .navbar-right ul li a:hover {
-    border: 1px solid var(--hospital-green);
-    color: var(--hospital-green);
+    border: 1px solid $--hospital-green;
+    color: $--hospital-green;
 }
 .navbar-email {
-    color: var(--very-light-pink);
-    font-size: var(--sm);
+    color: $--very-light-pink;
+    font-size: $--sm;
     margin-right: 12px;
     cursor: pointer;
 }
@@ -60,9 +60,9 @@ nav {
 .navbar-shopping-cart div {
     width: 16px;
     height: 16px;
-    background-color: var(--hospital-green);
+    background-color: $--hospital-green;
     border-radius: 50%;
-    font-size: var(--sm);
+    font-size: $--sm;
     font-weight: bold;
     position: absolute;
     top: -6px;
@@ -70,7 +70,14 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 6;
 }
+
+.button{
+    border:none;
+    background:none;    
+}
+
 @media (max-width: 640px) {
 .menu {
     display: block;

@@ -1,56 +1,72 @@
 import React from 'react';
-import '@styles/MobileMenu.scss';
-import closeIcon from '@icons/icon_close.png'
+import closeIcon from '@icons/icon_close.png';
+import Link from 'next/link';
+import Image from 'next/image';
+import styles from '@styles/MobileMenu.module.scss';
 
 const MobileMenu = ({toggle}) => {
     return(
-      <div className="MobileMenu">
-        <div className="MobileMenu-container">
-        	<img src={closeIcon} alt="close" onClick={()=>{toggle(false)}}/>
+      <div className={styles.MobileMenu}>
+        <div className={styles['MobileMenu-container']}>
+        	<Image src={closeIcon} alt="close" onClick={()=>{toggle(false);}} width="100%" height="100%"/>
         </div>
         <ul>
+        <li>
+            <Link href="/">
+                CATEGORIES
+            </Link>
+        </li>
+        <li>
+            <Link href="/">
+                All
+            </Link>
+        </li>
+        <li>
+            <Link href="/">
+                Clothes
+            </Link>
+        </li>
+        <li>
+            <Link href="/">
+                Electronics
+            </Link>
+        </li>
+        <li>
+            <Link href="/">
+                Furnitures
+            </Link>
+        </li>
+        <li>
+            <Link href="/">
+                Toys
+            </Link>
+        </li>
+        <li>
+            <Link href="/">
+                Others
+            </Link>
+        </li>
+        </ul>
+    
+        <ul>
           <li>
-            <a href="/">CATEGORIES</a>
+            <Link href="/">My Orders</Link>
           </li>
           <li>
-            <a href="/">All</a>
-          </li>
-          <li>
-            <a href="/">Clothes</a>
-          </li>
-          <li>
-            <a href="/">Electronics</a>
-          </li>
-          <li>
-            <a href="/">Furnitures</a>
-          </li>
-          <li>
-            <a href="/">Toys</a>
-          </li>
-          <li>
-            <a href="/">Other</a>
+            <Link href="/">My account</Link>
           </li>
         </ul>
     
         <ul>
           <li>
-            <a href="/">My orders</a>
+            <Link href="/" className={styles.email}>platzi@example.com</Link>
           </li>
           <li>
-            <a href="/">My account</a>
-          </li>
-        </ul>
-    
-        <ul>
-          <li>
-            <a href="/" className="email">platzi@example.com</a>
-          </li>
-          <li>
-            <a href="/" className="sign-out">Sign out</a>
+            <Link href="/" className={styles['sign-out']}>Sign out</Link>
           </li>
         </ul>
       </div>
-    )
-}
+    );
+};
 
 export default MobileMenu;

@@ -1,13 +1,13 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-const useShowInfo = ()=>{
-    const [toggleInfo, setToggleInfo] = useState(false);
+const useShowInfo = () => {
+  const [toggleInfo, setToggleInfo] = useState(false);
 
-	const handleInfo = () => {
-		setToggleInfo(!toggleInfo);
-	}
+  const handleInfo = () => {
+    setToggleInfo(!toggleInfo);
+  };
 
-    return handleInfo;
-}
+  return handleInfo;
+};
 
 export default useShowInfo;

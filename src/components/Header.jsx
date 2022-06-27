@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import '@styles/Header.scss'
+import Link from 'next/link';
 import Menu from '@components/Menu.jsx';
 import MyOrder from '@containers/MyOrder.jsx';
 import menu from '@icons/icon_menu.svg';
@@ -7,6 +7,8 @@ import MobileMenu from '@components/MobileMenu.jsx';
 import logo from '@logos/logo_yard_sale.svg';
 import cart from '@icons/icon_shopping_cart.svg';
 import AppContext from '@context/AppContext';
+import styles from '@styles/Header.module.scss';
+import Image from 'next/image';
 
 const Header = () => {
     const [toggle, setToggle] = useState(false); //estado del menú
@@ -16,54 +18,73 @@ const Header = () => {
 
     const handleToggle = () =>{
         setToggle(!toggle);
-    }
+    };
 
     const handleMobileMenu = () =>{
         setToggleMobileMenu(!toggleMobileMenu);
-    }
+    };
 
     return(
-        <nav>
-            <img src={menu} alt="menu" className="menu" onClick={handleMobileMenu}/>        
-            <div className="navbar-left">
-                        <img src={logo} alt="logo" className="nav-logo"/>
+        <>
+            <nav className={styles.Nav}>
+                <img src={menu.src} alt="menu" className={styles.menu} onClick={handleMobileMenu}/>        
+                <div className={styles['navbar-left']}>
+                            <Link href="/">
+                                <Image src={logo} alt="logo" className={styles['nav-logo']}/>
+                            </Link>
+                            <ul>
+                                <li>
+                                    <Link href="/">
+                                        All
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/">
+                                        Clothes
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/">
+                                        Electronics
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/">
+                                        Furnitures
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/">
+                                        Toys
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/">
+                                        Others
+                                    </Link>
+                                </li>
+                            </ul>
+                </div>  
+                <div className={styles['navbar-right']}>
                         <ul>
-                            <li>
-                            <a href="/">All</a>
+                            <li className={styles['navbar-email']} >
+                                <button className={styles.button} onClick={handleToggle}>
+                                    platzi@example.com
+                                </button>
                             </li>
-                            <li>
-                            <a href="/">Clothes</a>
-                            </li>
-                            <li>
-                            <a href="/">Electronics</a>
-                            </li>
-                            <li>
-                            <a href="/">Furnitures</a>
-                            </li>
-                            <li>
-                            <a href="/">Toys</a>
-                            </li>
-                            <li>
-                            <a href="/">Others</a>
+                            <li className={styles['navbar-shopping-cart']} >
+                                <button className={styles.button} onClick={() => setToggleOrders(!toggleOrders)}>
+                                    <Image src={cart} alt="shopping cart" />
+                                    {state.cart.length > 0 ? <div>{state.cart.length}</div> : null}
+                                </button>
                             </li>
                         </ul>
-            </div>  
-            <div className="navbar-right">
-                    <ul>
-                        <li className="navbar-email" onClick={handleToggle}>
-                            platzi@example.com
-                        </li>
-                        <li className="navbar-shopping-cart" 
-                        onClick={() => setToggleOrders(!toggleOrders)}>
-                            <img src={cart} alt="shopping cart" />
-                            {state.cart.length > 0 ? <div>{state.cart.length}</div> : null}
-                        </li>
-                    </ul>
-            </div>
-            {toggle && <Menu/>}
-            {toggleMobileMenu && <MobileMenu toggle={setToggleMobileMenu}/>}
-            {toggleOrders && <MyOrder/>}
-        </nav>  
+                </div>
+                {toggle && <Menu/>}
+                {toggleMobileMenu && <MobileMenu toggle={setToggleMobileMenu}/>}
+                {toggleOrders && <MyOrder/>}
+            </nav>  
+        </>
     );
 }; 
 

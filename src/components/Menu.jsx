@@ -1,22 +1,23 @@
 import React from 'react';
-import '@styles/Menu.scss';
+import Link from 'next/link';
+import styles from '@styles/Menu.module.scss';
 
 const Menu = () => {
     return(
-        <div className="Menu">
+        <div className={styles.Menu}>
             <ul>
-            <li>
-                <a href="/" className="title">My orders</a>
-            </li>
-            <li>
-                <a href="/">My account</a>
-            </li>
-            <li>
-                <Link to="/login">Sign out</Link>
-            </li>
+                <li>
+                    <Link href="/" className={styles.title}>My orders</Link>
+                </li>
+                <li>
+                    <Link href="/">My account</Link>
+                </li>
+                <li>
+                    <Link href="/login">Sign out</Link>
+                </li>
             </ul>
         </div>
-    )
-}
+    );
+};
 
 export default Menu;

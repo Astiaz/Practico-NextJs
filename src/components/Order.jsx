@@ -1,19 +1,20 @@
 import React from 'react';
-import '@styles/Order.scss';
+import Image from 'next/image';
+import styles from '@styles/Order.module.scss';
 
 import arrowIcon from '@icons/flechita.svg';
 
 const Order = () => {
     return(
-        <div className="order">
+        <div className={styles.order}>
             <p>
             <span>03.25.21</span>
             <span>6 articles</span>
             </p>
             <p>$560.00</p>
-            <img src={arrowIcon} alt="arrow"/>
+            <Image src={arrowIcon} alt="arrow"/>
         </div>
-    )
-}
+    );
+};
 
 export default Order;
