@@ -17,8 +17,10 @@ const OrderItem = ({product, indexValue}) =>{
             </figure>
             <p>{product?.title}</p>
             <p>${product?.price}</p>
-            <img src={closeIcon.src} className={styles.Delete} alt="close" width="100%"
-			height="100%" layout="responsive" onClick={() => handleRemove(indexValue)} />
+            <button onClick={() => handleRemove(indexValue)} className={styles.button}>
+                <img src={closeIcon.src} className={styles.Delete} alt="close" width="100%"
+                height="100%" layout="responsive" />
+            </button>
         </div>
     );
 };
